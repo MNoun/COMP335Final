@@ -1,0 +1,69 @@
+div2.relative {
+    position: relative;
+    top: 20px;
+    left: 400px;
+}
+
+div3.relative {
+    position: relative;
+    top: 20px;
+    left: 500px;
+}
+
+div4.relative {
+    position: relative;
+    top: 20px;
+    left: 600px;
+}
+
+div5.relative {
+    position: relative;
+    top: 20px;
+    left: 700px;
+}
+
+div1 {
+    width: 100%;
+    height: 10%;
+    background: rgb(143, 58, 9);
+    position: fixed;
+}
+
+a:link, a:visited {
+    color: white;
+}
+
+div2 {font-family: Arial, Helvetica, sans-serif; font-size: 20pt; color: white;}
+div3 {font-family: Arial, Helvetica, sans-serif; font-size: 20pt; color: white;}
+div4 {font-family: Arial, Helvetica, sans-serif; font-size: 20pt; color: white;}
+div5 {font-family: Arial, Helvetica, sans-serif; font-size: 20pt; color: white;}
+
+#snacks{
+    float: left;
+    width: 800px;
+    height: 600px;
+}
+
+#title{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40pt;
+    color: rgb(143, 58, 9);
+}
+
+#description{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20pt;
+}
+
+.button{
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    background-color: rgb(143, 58, 9);
+}
