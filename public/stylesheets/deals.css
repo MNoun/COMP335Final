@@ -1,0 +1,32 @@
+div2.relative {
+    position: relative;
+    top: 20px;
+    left: 500px;
+}
+
+div3.relative {
+    position: relative;
+    top: 20px;
+    left: 600px;
+}
+
+div4.relative {
+    position: relative;
+    top: 20px;
+    left: 700px;
+}
+
+div1 {
+    width: 100%;
+    height: 10%;
+    background: rgb(143, 58, 9);
+    position: fixed;
+}
+
+a:link, a:visited {
+    color: white;
+}
+
+div2 {font-family: Arial, Helvetica, sans-serif; font-size: 20pt; color: white;}
+div3 {font-family: Arial, Helvetica, sans-serif; font-size: 20pt; color: white;}
+div4 {font-family: Arial, Helvetica, sans-serif; font-size: 20pt; color: white;}
