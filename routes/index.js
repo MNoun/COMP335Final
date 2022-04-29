@@ -1,11 +1,11 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
-var path = require('path');
-var env = require('dotenv').config();
-const Client = require('pg').Client;
+var path = require("path");
+var env = require("dotenv").config();
+const Client = require("pg").Client;
 
 const client = (() => {
-  if (process.env.NODE_ENV !== 'production') {
+  if (process.env.NODE_ENV !== "production") {
       return new Client({
           connectionString: process.env.DATABASE_URL,
           ssl: false
@@ -21,16 +21,16 @@ const client = (() => {
 client.connect();
 
 //start of page routing
-  router.get('/', function(req, res, next) {
-    res.render('index', { title: 'Express' });
+  router.get("/", function(req, res, next) {
+    res.render("index", { title: "Express" });
   });
 
-  router.get('/deals', function(req, res, next) {
-    res.sendFile(path.join(__dirname,'..', 'public','deals.html'));
+  router.get("/deals", function(req, res, next) {
+    res.sendFile(path.join(__dirname,"..", "public","deals.html"));
   });
 
-  router.get('/profile', function(req, res, next) {
-    res.sendFile(path.join(__dirname,'..', 'public','profile.html'));
+  router.get("/profile", function(req, res, next) {
+    res.sendFile(path.join(__dirname,"..", "public","profile.html"));
   });
 //end of page routing
 
