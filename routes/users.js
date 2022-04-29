@@ -63,9 +63,7 @@ router.post('/login',
   // authentication locally (not using passport-google, passport-twitter, passport-github...)
   passport.authenticate('local', { failureRedirect: 'login?message=Incorrect+credentials', failureFlash:true }),
   function(req, res,next) {
-    let prefer = req.user.prefer;
-    console.log("fullname: ", prefer);
-    res.redirect('/users/profile?name='+prefer); // Successful. redirect to localhost:3000/users/profile
+    res.redirect('/users/profile'); // Successful. redirect to localhost:3000/users/profile
 });
 
 
@@ -82,7 +80,7 @@ function createUser(req, res, next){
   var salt = bcrypt.genSaltSync(10);
   var password = bcrypt.hashSync(req.body.password, salt);
 
-  client.query('INSERT INTO users (username, password, fullname, prefer) VALUES($1, $2, $3, $4)', [req.body.username, password,req.body.fullname,req.body.prefer], function(err, result) {
+  client.query('INSERT INTO dealsUsers (username, password) VALUES($1, $2)', [req.body.username, password], function(err, result) {
     if (err) {
       console.log("unable to query INSERT");
       return next(err); // throw error to error.hbs.
@@ -93,7 +91,7 @@ function createUser(req, res, next){
 }
 
 router.post('/signup', function(req, res, next) {
-  client.query('SELECT * FROM users WHERE username=$1',[req.body.username], function(err,result){
+  client.query('SELECT * FROM dealsUsers WHERE username=$1',[req.body.username], function(err,result){
     if (err) {
       console.log("sql error ");
       next(err); // throw error to error.hbs.
