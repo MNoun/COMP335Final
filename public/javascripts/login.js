@@ -1,5 +1,5 @@
 const urlParams = new URLSearchParams(window.location.search);
-const message = urlParams.get('message');
+const message = urlParams.get("message");
 
 if (message) {
   let element = (
@@ -7,6 +7,6 @@ if (message) {
   );
   ReactDOM.render(
     element,
-    document.getElementById('message')
+    document.getElementById("message")
   );
 }

@@ -12,6 +12,6 @@ function whoami(){
   
   ReactDOM.render(
     element,
-    document.getElementById('whoami')
+    document.getElementById("whoami")
   );
 }

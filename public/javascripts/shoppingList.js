@@ -5,10 +5,6 @@ xhttp.addEventListener("error",error);
 xhttp.open("GET", "/shoppingListOut", true); 
 xhttp.send();
 
-/* 
-https://reactjs.org/docs/lists-and-keys.html
-https://en.wikipedia.org/wiki/Map_(higher-order_function)
-*/
 function success(){
   let data = JSON.parse(xhttp.response);
   let rows = data.map((row) => 
@@ -28,13 +24,9 @@ function success(){
   
   ReactDOM.render(
     element,
-    document.getElementById('shoppingList')
+    document.getElementById("shoppingList")
   );
-  /*
-   datatable CSS 
-   https://datatables.net/
-   https://github.com/fiduswriter/Simple-DataTables
-  */
+
   const dataTable = new simpleDatatables.DataTable("#myTable");
 
 }

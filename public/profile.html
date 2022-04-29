@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="/stylesheets/shoppingList.css">
-<link rel="stylesheet" href="/stylesheets/menu.css">
+  <title>shopping List</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" type="text/css">
-<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" type="text/javascript"></script>
-
-<script src="https://unpkg.com/react@17/umd/react.development.js"></script>
-<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
-<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-<script src="/javascripts/shoppingList.js" type="text/babel"></script> 
-<script  src="http://code.jquery.com/jquery-1.9.1.min.js" ></script>
+  <link rel="stylesheet" href="/stylesheets/shoppingList.css">
+  <link rel="stylesheet" href="/stylesheets/menu.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" type="text/css">
+  
+  <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" type="text/javascript"></script>
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="http://code.jquery.com/jquery-1.9.1.min.js" ></script>
 </head>
+
 <body>
+  <!--navigation menu-->
   <div container class="menu">
     <mi>
       <item><a class="link" href="/">Home</a></item>
@@ -23,6 +26,7 @@
     </mi>
   </div>
 
+  <!--form to add items to the list-->
   <div class="header">
     <form action="/addItem" method="post">
       <h2 style="margin:5px">Shopping List</h2>
@@ -31,24 +35,24 @@
     </form>
   </div>
 
+  <!--button to clear the shoppig list for this user-->
   <div>
     <form method="post" action="/clearList">
       <input type="submit" value="Clear List" class="clrBtn">
     </form>
   </div>
 
+  <!--database table loads here-->
   <div id="shoppingList">
     <!-- This element's contents will be replaced with your component. -->
   </div>
 
+  <script src="/javascripts/shoppingList.js" type="text/babel"></script> 
+
   <script>
-    $(document).ready(function(){
+    $(document).ready(function() {
         $("#shoppingList").on("click",".row",function(ev) {
             ev.target.classList.toggle("checked");
-            var column_num = parseInt( $(this).index() ) + 1;
-            var row_num = parseInt( $(this).parent().index() )+1;
-
-            $("#result").html( "Row_num =" + row_num + "  ,  Rolumn_num ="+ column_num );
         });
     });
   </script>
