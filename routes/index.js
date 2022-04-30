@@ -106,4 +106,13 @@ router.post("/addItem",function(req, res, next) {
   });
 });
 
+//display deals database
+router.get('/productsOut', function(req, res, next) {
+  client.query('SELECT * FROM products', function(err, result){
+    if (err) {next(err);}
+    res.json(result.rows);
+    console.log(result.rows);
+  });
+});
+
 module.exports = router;

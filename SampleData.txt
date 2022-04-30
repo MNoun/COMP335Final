@@ -1,5 +1,5 @@
 1,"Coca-Cola 6-pack","$2.59","beverage","02370"
-2,"Water Bottle 12-pack","$4.30","beverage,"02370"
+2,"Water Bottle 12-pack","$4.30","beverage","02370"
 3,"Lays Chips","$2.75","snack","02370"
 4,"Chicken breasts","$3.75","meat","02370"
 5,"Apples, dozen","$3.50","produce","02370"
