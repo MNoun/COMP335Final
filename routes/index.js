@@ -106,7 +106,7 @@ router.post("/addItem",function(req, res, next) {
   });
 });
 
-//start of deals database display
+//start of products database display
 //full table
 router.get('/productsOut', function(req, res, next) {
   client.query('SELECT * FROM products', function(err, result){
@@ -160,5 +160,34 @@ router.get('/productsProduceOut', function(req, res, next) {
     console.log(result.rows);
   });
 });
+
+//start of area database display
+//first area
+router.get('/area1Out', function(req, res, next) {
+  client.query("SELECT * FROM products WHERE area = '2370'", function(err, result){
+    if (err) {next(err);}
+    res.json(result.rows);
+    console.log(result.rows);
+  });
+});
+
+//second area
+router.get('/area2Out', function(req, res, next) {
+  client.query("SELECT * FROM products WHERE area = '2351'", function(err, result){
+    if (err) {next(err);}
+    res.json(result.rows);
+    console.log(result.rows);
+  });
+});
+
+//third area
+router.get('/area3Out', function(req, res, next) {
+  client.query("SELECT * FROM products WHERE area = '2324'", function(err, result){
+    if (err) {next(err);}
+    res.json(result.rows);
+    console.log(result.rows);
+  });
+});
+
 
 module.exports = router;

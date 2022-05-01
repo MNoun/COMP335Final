@@ -11,6 +11,10 @@ function chkDropdown(){
   var productMenu = document.getElementById('products');
   var productValue = productMenu.options[productMenu.selectedIndex].value;
 
+  //get area dropdown
+  var areaMenu = document.getElementById('location');
+  var areaValue = areaMenu.options[areaMenu.selectedIndex].value;
+
   //none dropdown selected
   if(productValue == "none"){
     xhttp.open("GET", "/productsOut", true);
@@ -44,6 +48,24 @@ function chkDropdown(){
   //produce dropdown selected
   if(productValue == "produce"){
     xhttp.open("GET", "/productsProduceOut", true);
+    xhttp.send();
+  }
+
+  //area 02370 dropdown selected
+  if(areaValue == "02370"){
+    xhttp.open("GET", "/area1Out", true);
+    xhttp.send();
+  }
+
+  //area 02351 dropdown selected
+  if(areaValue == "02351"){
+    xhttp.open("GET", "/area2Out", true);
+    xhttp.send();
+  }
+
+  //area 02324 dropdown selected
+  if(areaValue == "02324"){
+    xhttp.open("GET", "/area3Out", true);
     xhttp.send();
   }
 
@@ -105,3 +127,4 @@ function clear(){
 //add event listeners
 btn.addEventListener('click', clear)
 document.getElementById("products").addEventListener('change', chkDropdown);
+document.getElementById("location").addEventListener('change', chkDropdown);
