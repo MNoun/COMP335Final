@@ -2,8 +2,54 @@ let xhttp = new XMLHttpRequest();
 
 xhttp.addEventListener("load",success);
 xhttp.addEventListener("error",error);
-xhttp.open("GET", "/productsOut", true);
-xhttp.send();
+
+let btn = document.getElementById("clearButton");
+
+function chkDropdown(){
+
+  //get product dropdown
+  var productMenu = document.getElementById('products');
+  var productValue = productMenu.options[productMenu.selectedIndex].value;
+
+  //none dropdown selected
+  if(productValue == "none"){
+    xhttp.open("GET", "/productsOut", true);
+    xhttp.send();
+  }
+
+  //beverage dropdown selected
+  if(productValue == "beverage"){
+    xhttp.open("GET", "/productsBeverageOut", true);
+    xhttp.send();
+  }
+
+  //snack dropdown selected
+  if(productValue == "snack"){
+    xhttp.open("GET", "/productsSnackOut", true);
+    xhttp.send();
+  }
+
+  //bread dropdown selected
+  if(productValue == "bread"){
+    xhttp.open("GET", "/productsBreadOut", true);
+    xhttp.send();
+  }
+
+  //meat dropdown selected
+  if(productValue == "meat"){
+    xhttp.open("GET", "/productsMeatOut", true);
+    xhttp.send();
+  }
+
+  //produce dropdown selected
+  if(productValue == "produce"){
+    xhttp.open("GET", "/productsProduceOut", true);
+    xhttp.send();
+  }
+
+}
+
+//xhttp.send();
 
 /*
 https://reactjs.org/docs/lists-and-keys.html
@@ -22,7 +68,7 @@ function success(){
   );
   console.log(rows);
   let element =(
-    <div>
+    <div id='fullDiv'>
       <h2>Deals</h2>
         <table id="myTable">
         <thead>
@@ -51,3 +97,11 @@ function error(){
   console.log(xhttp.readyState);
   console.log(xhttp.status);
 }
+
+function clear(){
+  ReactDOM.unmountComponentAtNode(document.getElementById("productsTable"));
+}
+
+//add event listeners
+btn.addEventListener('click', clear)
+document.getElementById("products").addEventListener('change', chkDropdown);

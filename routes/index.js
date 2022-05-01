@@ -106,9 +106,55 @@ router.post("/addItem",function(req, res, next) {
   });
 });
 
-//display deals database
+//start of deals database display
+//full table
 router.get('/productsOut', function(req, res, next) {
   client.query('SELECT * FROM products', function(err, result){
+    if (err) {next(err);}
+    res.json(result.rows);
+    console.log(result.rows);
+  });
+});
+
+//beverage table
+router.get('/productsBeverageOut', function(req, res, next) {
+  client.query("SELECT * FROM products WHERE type = 'beverage'", function(err, result){
+    if (err) {next(err);}
+    res.json(result.rows);
+    console.log(result.rows);
+  });
+});
+
+//snack table
+router.get('/productsSnackOut', function(req, res, next) {
+  client.query("SELECT * FROM products WHERE type = 'snack'", function(err, result){
+    if (err) {next(err);}
+    res.json(result.rows);
+    console.log(result.rows);
+  });
+});
+
+//bread table
+router.get('/productsBreadOut', function(req, res, next) {
+  client.query("SELECT * FROM products WHERE type = 'bread'", function(err, result){
+    if (err) {next(err);}
+    res.json(result.rows);
+    console.log(result.rows);
+  });
+});
+
+//bread table
+router.get('/productsMeatOut', function(req, res, next) {
+  client.query("SELECT * FROM products WHERE type = 'meat'", function(err, result){
+    if (err) {next(err);}
+    res.json(result.rows);
+    console.log(result.rows);
+  });
+});
+
+//produce table
+router.get('/productsProduceOut', function(req, res, next) {
+  client.query("SELECT * FROM products WHERE type = 'produce'", function(err, result){
     if (err) {next(err);}
     res.json(result.rows);
     console.log(result.rows);
