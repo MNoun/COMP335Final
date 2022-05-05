@@ -112,82 +112,89 @@ router.get('/productsOut', function(req, res, next) {
   client.query('SELECT * FROM products', function(err, result){
     if (err) {next(err);}
     res.json(result.rows);
-    console.log(result.rows);
+
   });
 });
 
 //beverage table
-router.get('/productsBeverageOut', function(req, res, next) {
-  client.query("SELECT * FROM products WHERE type = 'beverage'", function(err, result){
+router.get('/bev1Out', function(req, res, next) {
+  client.query("SELECT * FROM products WHERE type = 'beverage' and area = '2324'", function(err, result){
     if (err) {next(err);}
     res.json(result.rows);
-    console.log(result.rows);
+
   });
 });
 
-//snack table
-router.get('/productsSnackOut', function(req, res, next) {
-  client.query("SELECT * FROM products WHERE type = 'snack'", function(err, result){
+router.get('/bev2Out', function(req, res, next) {
+  client.query("SELECT * FROM products WHERE type = 'beverage' and area = '2382'", function(err, result){
     if (err) {next(err);}
     res.json(result.rows);
-    console.log(result.rows);
+
   });
 });
 
-//bread table
-router.get('/productsBreadOut', function(req, res, next) {
-  client.query("SELECT * FROM products WHERE type = 'bread'", function(err, result){
+router.get('/bread1Out', function(req, res, next) {
+  client.query("SELECT * FROM products WHERE type = 'bread' and area = '2324'", function(err, result){
     if (err) {next(err);}
     res.json(result.rows);
-    console.log(result.rows);
+
   });
 });
 
-//bread table
-router.get('/productsMeatOut', function(req, res, next) {
-  client.query("SELECT * FROM products WHERE type = 'meat'", function(err, result){
+router.get('/bread2Out', function(req, res, next) {
+  client.query("SELECT * FROM products WHERE type = 'bread' and area = '2382'", function(err, result){
     if (err) {next(err);}
     res.json(result.rows);
-    console.log(result.rows);
+
   });
 });
 
-//produce table
-router.get('/productsProduceOut', function(req, res, next) {
-  client.query("SELECT * FROM products WHERE type = 'produce'", function(err, result){
+router.get('/pro1Out', function(req, res, next) {
+  client.query("SELECT * FROM products WHERE type = 'produce' and area = '2324'", function(err, result){
     if (err) {next(err);}
     res.json(result.rows);
-    console.log(result.rows);
+
   });
 });
 
-//start of area database display
-//first area
-router.get('/area1Out', function(req, res, next) {
-  client.query("SELECT * FROM products WHERE area = '2370'", function(err, result){
+router.get('/pro2Out', function(req, res, next) {
+  client.query("SELECT * FROM products WHERE type = 'produce' and area = '2382'", function(err, result){
     if (err) {next(err);}
     res.json(result.rows);
-    console.log(result.rows);
+
   });
 });
 
-//second area
-router.get('/area2Out', function(req, res, next) {
-  client.query("SELECT * FROM products WHERE area = '2351'", function(err, result){
+router.get('/meat1Out', function(req, res, next) {
+  client.query("SELECT * FROM products WHERE type = 'meat' and area = '2324'", function(err, result){
     if (err) {next(err);}
     res.json(result.rows);
-    console.log(result.rows);
+
   });
 });
 
-//third area
-router.get('/area3Out', function(req, res, next) {
-  client.query("SELECT * FROM products WHERE area = '2324'", function(err, result){
+router.get('/meat2Out', function(req, res, next) {
+  client.query("SELECT * FROM products WHERE type = 'meat' and area = '2382'", function(err, result){
     if (err) {next(err);}
     res.json(result.rows);
-    console.log(result.rows);
+
   });
 });
 
+router.get('/snack1Out', function(req, res, next) {
+  client.query("SELECT * FROM products WHERE type = 'snack' and area = '2324'", function(err, result){
+    if (err) {next(err);}
+    res.json(result.rows);
+
+  });
+});
+
+router.get('/snack2Out', function(req, res, next) {
+  client.query("SELECT * FROM products WHERE type = 'snack' and area = '2382'", function(err, result){
+    if (err) {next(err);}
+    res.json(result.rows);
+
+  });
+});
 
 module.exports = router;

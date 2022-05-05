@@ -5,78 +5,70 @@ xhttp.addEventListener("error",error);
 
 let btn = document.getElementById("clearButton");
 
-function chkDropdown(){
+function chkDeals(){
 
-  //get product dropdown
   var productMenu = document.getElementById('products');
   var productValue = productMenu.options[productMenu.selectedIndex].value;
 
-  //get area dropdown
   var areaMenu = document.getElementById('location');
   var areaValue = areaMenu.options[areaMenu.selectedIndex].value;
 
-  //none dropdown selected
-  if(productValue == "none"){
-    xhttp.open("GET", "/productsOut", true);
-    xhttp.send();
-  }
-
-  //beverage dropdown selected
   if(productValue == "beverage"){
-    xhttp.open("GET", "/productsBeverageOut", true);
-    xhttp.send();
+    if(areaValue == "02324"){
+      xhttp.open("GET", "/bev1Out", true);
+      xhttp.send();
+    }
+    if(areaValue == "02382"){
+      xhttp.open("GET", "/bev2Out", true);
+      xhttp.send();
+    }
   }
 
-  //snack dropdown selected
   if(productValue == "snack"){
-    xhttp.open("GET", "/productsSnackOut", true);
-    xhttp.send();
+    if(areaValue == "02324"){
+      xhttp.open("GET", "/snack1Out", true);
+      xhttp.send();
+    }
+    if(areaValue == "02382"){
+      xhttp.open("GET", "/snack2Out", true);
+      xhttp.send();
+    }  
   }
 
-  //bread dropdown selected
   if(productValue == "bread"){
-    xhttp.open("GET", "/productsBreadOut", true);
-    xhttp.send();
+    if(areaValue == "02324"){
+      xhttp.open("GET", "/bread1Out", true);
+      xhttp.send();
+    }
+    if(areaValue == "02382"){
+      xhttp.open("GET", "/bread2Out", true);
+      xhttp.send();
+    }
   }
 
-  //meat dropdown selected
   if(productValue == "meat"){
-    xhttp.open("GET", "/productsMeatOut", true);
-    xhttp.send();
+    if(areaValue == "02324"){
+      xhttp.open("GET", "/meat1Out", true);
+      xhttp.send();
+    }
+    if(areaValue == "02382"){
+      xhttp.open("GET", "/meat2Out", true);
+      xhttp.send();
+    }
   }
 
-  //produce dropdown selected
   if(productValue == "produce"){
-    xhttp.open("GET", "/productsProduceOut", true);
-    xhttp.send();
+    if(areaValue == "02324"){
+      xhttp.open("GET", "/pro1Out", true);
+      xhttp.send();
+    }
+    if(areaValue == "02382"){
+      xhttp.open("GET", "/pro2Out", true);
+      xhttp.send();
+    }
   }
-
-  //area 02370 dropdown selected
-  if(areaValue == "02370"){
-    xhttp.open("GET", "/area1Out", true);
-    xhttp.send();
-  }
-
-  //area 02351 dropdown selected
-  if(areaValue == "02351"){
-    xhttp.open("GET", "/area2Out", true);
-    xhttp.send();
-  }
-
-  //area 02324 dropdown selected
-  if(areaValue == "02324"){
-    xhttp.open("GET", "/area3Out", true);
-    xhttp.send();
-  }
-
 }
 
-//xhttp.send();
-
-/*
-https://reactjs.org/docs/lists-and-keys.html
-https://en.wikipedia.org/wiki/Map_(higher-order_function)
-*/
 function success(){
   let data = JSON.parse(xhttp.response);
 
@@ -84,23 +76,14 @@ function success(){
     <tr key={JSON.stringify(row)}>
         <td> { row.name }</td>
         <td> { row.price }</td>
-        <td> { row.type }</td>
-        <td> { row.area }</td>
     </tr>
   );
-  console.log(rows);
   let element =(
-    <div id='fullDiv'>
-      <h2>Deals</h2>
         <table id="myTable">
-        <thead>
-        <tr><th>Name</th><th>Price</th><th>Type</th><th>Area</th></tr>
-        </thead>
         <tbody>
             {rows}
         </tbody>
         </table>
-    </div>
   );
 
   ReactDOM.render(
@@ -126,5 +109,5 @@ function clear(){
 
 //add event listeners
 btn.addEventListener('click', clear)
-document.getElementById("products").addEventListener('change', chkDropdown);
-document.getElementById("location").addEventListener('change', chkDropdown);
+document.getElementById("products").addEventListener('change', chkDeals);
+document.getElementById("location").addEventListener('change', chkDeals);
