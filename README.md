@@ -6,3 +6,6 @@ Assignment: Final Project
 
 Description: 
 This web app is a tool for finding deals and sales on food and drinks around you. 
+
+Link to Heroku:
+https://nounbuielproject.herokuapp.com
