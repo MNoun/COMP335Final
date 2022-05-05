@@ -9,11 +9,12 @@
   <link rel="stylesheet" href="/stylesheets/menu.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" type="text/css">
   
+  <script src="/javascripts/shoppingList.js" type="text/babel"></script> 
   <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" type="text/javascript"></script>
   <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <script src="http://code.jquery.com/jquery-1.9.1.min.js" ></script>
+  <script src="https://code.jquery.com/jquery-1.9.1.min.js" ></script>
 </head>
 
 <body>
@@ -35,7 +36,7 @@
     </form>
   </div>
 
-  <!--button to clear the shoppig list for this user-->
+  <!--button to clear the shopping list for this user-->
   <div>
     <form method="post" action="/clearList">
       <input type="submit" value="Clear List" class="clrBtn">
@@ -46,8 +47,6 @@
   <div id="shoppingList">
     <!-- This element's contents will be replaced with your component. -->
   </div>
-
-  <script src="/javascripts/shoppingList.js" type="text/babel"></script> 
 
   <script>
     $(document).ready(function() {
